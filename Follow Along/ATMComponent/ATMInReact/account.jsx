@@ -17,7 +17,7 @@ const Account = () => {
     transactionState = Number(event.target.value);
   };
   const handleSubmit = () => {
-    totalState += transactionState;
+    setTotalState(totalState + transactionState);
     event.preventDefault();
   };
   return (
