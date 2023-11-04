@@ -10,7 +10,7 @@ const ATMDeposit = ({onChange}) => {
 
 const Account = () => {
   let transactionState = 0; // state of this transaction
-  let totalState = 0; // Account total at Bank
+  const [totalState, setTotalState] = React.useState(0);
   let status = `Account Balance $ ${totalState}`;
   const handleChange = event => {
     console.log(`handleChange ${event.target.value}`);
