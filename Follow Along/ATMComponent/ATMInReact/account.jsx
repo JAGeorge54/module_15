@@ -40,4 +40,4 @@ const Account = () => {
   );
 };
 // ========================================
-ReactDOM.render(<ATMDeposit />, document.getElementById("root"));
+ReactDOM.render(<Account />, document.getElementById("root"));
