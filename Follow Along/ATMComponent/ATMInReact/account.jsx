@@ -16,7 +16,7 @@ const ATMDeposit = () => {
     <label className="label huge">
       Deposit:
       <input type="number" onChange={handleChange}></input>
-      <input type="submit" onClick={handleSubmit}></input>
+      <input type="submit" value='submit' onClick={handleSubmit}></input>
       <h2 id="total">{status}</h2>
     </label>
   );
