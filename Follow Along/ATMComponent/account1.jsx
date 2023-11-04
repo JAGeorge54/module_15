@@ -12,15 +12,15 @@ const ATMDeposit = ({ onChange }) => {
   
   const Account = () => {
     const [accountState, setAccountState] = React.useState(0);
-    var deposit = 0;
+    let deposit = 0;
     const handleChange = event => {
       console.log(`handleChange ${event.target.value}`);
       deposit = Number(event.target.value);
     };
     const handleSubmit = event => {
       let newTotal = accountState + deposit;
-      alert(`Account total = ${newTotal}`);
       setAccountState(newTotal);
+      alert(`Account total = ${newTotal}`);
       event.preventDefault();
     };
   
