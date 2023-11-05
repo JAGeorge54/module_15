@@ -19,9 +19,19 @@ const Account = () => {
     setDeposit(Number(event.target.value));
   };
   const handleSubmit = (event) => {
-    let newTotal = isDeposit ? totalState + deposit : totalState - deposit;
+    let newTotal;
+    if (!isDeposit) {
+      if (deposit > totalState) {
+        alert('Insufficient Funds');
+        newTotal = totalState;
+      } else {
+        newTotal = totalState - deposit;
+      }
+      
+    } else {
+      newTotal = totalState + deposit;
+    }
     setTotalState(newTotal);
-    setDeposit(0);
     event.preventDefault();
   };
   return (
