@@ -28,6 +28,15 @@ const Account = () => {
     setValidTransaction(false);
     event.preventDefault();
   };
+  const handleModeSelect = (event) => {
+    console.log(event.target.value);
+    setAtmMode(event.target.value);
+    if (event.target.value === 'Deposit') {
+      setIsDeposit(true);
+    } else {
+      setIsDeposit(false);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
