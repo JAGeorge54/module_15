@@ -20,12 +20,11 @@ const Account = () => {
   let status = `Account Balance $ ${totalState} `;
   console.log(`Account Rendered with isDeposit: ${isDeposit}`);
   const handleChange = (event) => {
-    console.log(`handleChange ${event.target.value}`);
-    if (Number(event.target.value <= 0)) {
-      setValidTransaction(false);
-      return;
+    console.log(Number(event.target.value));
+    if (Number(event.target.value) <= 0) {
+      return setValidTransaction(false);
     }
-    if (atmMode === 'Cash Back' && Number(event.target.value) > totalState){
+    if (atmMode === 'Cash Back' && Number(event.target.value) > totalState) {
       setValidTransaction(false);
     } else {
       setValidTransaction(true);
@@ -42,6 +41,7 @@ const Account = () => {
   const handleModeSelect = (event) => {
     console.log(event.target.value);
     setAtmMode(event.target.value);
+    setValidTransaction(false);
     if (event.target.value === 'Deposit') {
       setIsDeposit(true);
     } else {
@@ -64,7 +64,7 @@ const Account = () => {
           </option>
         </select>
         {atmMode && (
-          <ATMDeposit 
+          <ATMDeposit
             onChange={handleChange}
             isDeposit={isDeposit}
             isValid={validTransaction}
