@@ -47,8 +47,6 @@ const Account = () => {
         <option id="deposit-selection" value="Deposit">Deposit</option>
         <option id="cashback-selection" value="Cash Back">Cash Back</option>
       </select>
-      <button onClick={() => setIsDeposit(true)}>Deposit</button>
-      <button onClick={() => setIsDeposit(false)}>Cash Back</button>
       <ATMDeposit onChange={handleChange} isDeposit={isDeposit}></ATMDeposit>
     </form>
   );
