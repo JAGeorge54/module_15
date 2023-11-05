@@ -1,4 +1,4 @@
-const ATMDeposit = ({ onChange, isDeposit }) => {
+const ATMDeposit = ({ onChange, isDeposit, Valid }) => {
   const choice = ['Deposit', 'Cash Back'];
   console.log(`ATM isDeposit: ${isDeposit}`);
   return (
@@ -58,6 +58,7 @@ const Account = () => {
           <ATMDeposit 
             onChange={handleChange}
             isDeposit={isDeposit}
+            Valid={validTransaction}
           ></ATMDeposit>
         )}
       </>
