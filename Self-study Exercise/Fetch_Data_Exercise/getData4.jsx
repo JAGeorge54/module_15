@@ -89,7 +89,8 @@ function App() {
   const { Fragment, useState, useEffect, useReducer } = React;
   const [query, setQuery] = useState("MIT");
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 10;
+  const [perPage, setPerPage] = useState(10)
+  const pageSize = perPage;
   const [{ data, isLoading, isError }, doFetch] = useDataApi(
     "https://hn.algolia.com/api/v1/search?query=MIT",
     {
@@ -104,6 +105,9 @@ function App() {
     page = paginate(page, currentPage, pageSize);
     console.log(`currentPage: ${currentPage}`);
   }
+  const handlePage = (event) => {
+    
+  };
   return (
     <Fragment>
       <form
@@ -115,9 +119,19 @@ function App() {
         <input
           type="text"
           value={query}
-          onChange={event => setQuery(event.target.value)}
+          onChange={event => setQuery(Number(event.target.value))}
         />
         <button type="submit">Search</button>
+        <label for="pSize">Items per page:</label>
+        <select onSubmit={handlePage(e)} id="perPage" name="items">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
       </form>
 
       {isError && <div>Something went wrong ...</div>}

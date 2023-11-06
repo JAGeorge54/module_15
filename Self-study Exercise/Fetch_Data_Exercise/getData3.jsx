@@ -65,6 +65,7 @@ function App() {
       hits: []
     }
   );
+  console.log(query);
 
   return (
     <Fragment>

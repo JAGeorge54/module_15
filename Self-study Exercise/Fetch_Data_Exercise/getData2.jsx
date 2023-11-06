@@ -5,7 +5,7 @@ function App() {
   const [query, setQuery] = useState("MIT");
   const [isError, setIsError] = useState(false);
   const [url, setUrl] = useState(
-    "https://hn.algolia.com/api/v1/search?query=MIT"
+    `https://hn.algolia.com/api/v1/search?query=${query}`
   );
   const [isLoading, setIsLoading] = React.useState(false);
   console.log("Rendering App");
