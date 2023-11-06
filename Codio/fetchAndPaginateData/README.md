@@ -14,3 +14,23 @@ Note: This activity does not include the search feature shown in the course vide
 screenshot
 Note: We are using useEffect so that our API call only runs when the component mounts (first render), and not also when the component re-renders.
 Note: The didCancel boolean is for us to use in case of the component unmounts before the API call resolves (completes). We can prevent the state from being updated.
+
+2. Paginate Data
+React – Pagination
+Now it’s time to add pagination. The result should look like the following:
+pagination.PNG
+Your task in this step is to implement the Pagination component that renders a list of buttons representing the number of available pages.
+The Pagination component has the following destructured props (these are already set):
+items: This is an array containing all articles
+pageSize: This is the desired page size representing the number of articles per page
+onPageChange: This is the event that is triggered when a page is selected
+To implement the Pagination component, complete the following:
+If there is one item or less, the component should return null
+Calculate the number of pages based on the pageSize and items.length variables
+Create a variable named pages using the range function, the range function should use the data from the previous step. This should result in an array of numbers that represents the number of pages
+Use the pages array to create a new array called list. list should be an array of buttons. The button should have the following properties:
+The className should be page-item
+A key
+A onClick event
+The Pagination component should return the list of all buttons inside an unordered list (<ul></ul>). The unordered list should also be wrapped within a <nav> tag
+Note: Use the following to have access the <Button> component: const { Button } = ReactBootstrap;
