@@ -29,6 +29,17 @@ const useDataApi = (initialUrl, initialData) => {
     let didCancel = false;
     const fetchData = async () => {
       // Part 1, step 1 code goes here
+      dispatch({ type: "FETCH_INIT" });
+      try {
+        const result = await axios(url);
+        if (!didCancel) {
+          dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+        }
+      } catch (error) {
+        if (!didCancel) {
+          dispatch({ type: "FETCH_FAILURE" });
+        }
+      }
     };
     fetchData();
     return () => {
@@ -90,9 +101,9 @@ function App() {
         <div>Loading ...</div>
       ) : (
         // Part 1, step 2 code goes here
-        <ul>
+        <ul className="list-group">
           {page.map((item) => (
-            <li key={item.objectID}>
+            <li key={item.objectID} className="list-group-item">
               <a href={item.url}>{item.title}</a>
             </li>
           ))}
