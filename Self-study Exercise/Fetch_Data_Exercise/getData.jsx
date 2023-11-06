@@ -2,7 +2,7 @@ function App() {
   const { useState, useEffect } = React;
   const { Container } = ReactBootstrap;
   const [data, setData] = useState({ hits: [] });
-  const [url, setUrl] = useState("http://localhost:8080/data.json");
+  const [url, setUrl] = useState("./data.json");
   const [query, setQuery] = useState("");
 
   console.log("Rendering App");
